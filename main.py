@@ -9,6 +9,9 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 apiKey = '5707e0ccd82c4f92bdfbdbc731f574e8'
 
+import nltk
+nltk.download('punkt')
+
 @app.get('/', response_class=HTMLResponse)
 def index():
     # render index.html
