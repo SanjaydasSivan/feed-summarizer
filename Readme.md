@@ -35,7 +35,6 @@ deta - for deployment of the API
 5. Open the browser and go to 'http://127.0.0.1:8000/' to access the API
 6. Enter the query and click on 'Search' to get the summarized data feed
 7. To know more about the API, go to 'http://http://127.0.0.1:8000/docs'
-8. To deploy the API, install deta and run 'deta new' and follow the instructions. for more information, visit 'https://docs.deta.sh/docs/home/'
 
 ## Screenshots
 ### Home page
