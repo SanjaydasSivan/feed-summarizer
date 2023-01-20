@@ -17,7 +17,7 @@ After getting the summarized data, it is displayed to the user using fastapi's H
 ## Technology Stack
 The project is based on the following technologies:
 
-sumy - for summarization of the data feed. It is a python library for automatic summarization of text documents. It supports several algorithms for summarization and it is easy to use. It is based on the paper “Automatic Text Summarization Using NLP Techniques” by Mihalcea and Tarau.
+sumy - for summarization of the data feed. It is a python library for automatic summarization of text documents. It supports several algorithms for summarization and it is easy to use.
 
 fastapi - for creating a REST API for the summarization service. It is a modern, fast (high-performance), web framework for building APIs with Python 3.6+ based on standard Python type hints.
 
