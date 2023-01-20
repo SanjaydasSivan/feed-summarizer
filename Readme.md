@@ -25,8 +25,6 @@ uvicorn - for running the REST API service. It is a lightning-fast ASGI server i
 
 newsapi - for getting the data feed. It is a simple HTTP REST API for searching and retrieving live articles from all over the web.
 
-deta - for deployment of the API
-
 ## How to run the project
 1. Clone the project
 2. Install the dependencies (pip install -r requirements.txt)
