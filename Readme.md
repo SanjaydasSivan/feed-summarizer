@@ -38,7 +38,7 @@ deta - for deployment of the API
 
 ## Screenshots
 ### Home page
-![Screenshot 1](/static/screeshot1.png)
+![Screenshot 1](/static/screenshot1.png)
 
 ### Search results
 ![Screenshot 2](/static/screenshot2.png)

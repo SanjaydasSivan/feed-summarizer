@@ -1,6 +1,6 @@
 import fastapi
 from fastapi.responses import HTMLResponse
-from summarizer import get_headlines
+from summarizer import getLlatestArticles
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
@@ -40,7 +40,9 @@ def format_article(article):
 
 @app.get('/search')
 def search(query):
-    articles = get_headlines(3, q=query, apiKey=apiKey)
+    if not query:
+        return HTMLResponse(index())
+    articles = getLlatestArticles(3, q=query, apiKey=apiKey)
     formatted_articles = [format_article(article) for article in articles]
     html_content = """
     <h1 style="margin-left:10px">Summaries of feeds on the topic of "{}"</h1>""".format(query) + ''.join(formatted_articles)
