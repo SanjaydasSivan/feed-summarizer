@@ -1,6 +1,8 @@
 # MLAI based summarization and data aggregation for generating insights from “Energy Data feed”
 This is a project to generate insights from energy data feed.
 
+The solution is deployed on Render.com. You can access the solution at [energy-data-feed-summarizer](https://energy-data-feed-summarizer.onrender.com) (https://energy-data-feed-summarizer.onrender.com)
+
 ## Problem Statement
 Develop a MLAI based summarization and data aggregation for generating insights from “Energy Data feed”
 − Minimize manual curation and analysis in automated feed
