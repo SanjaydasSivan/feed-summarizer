@@ -31,7 +31,7 @@ def newsAPI(url: str, **kwargs) -> list:
     params = kwargs
     res = requests.get(url, params=params)
     articles = res.json().get('articles')
-    return articles
+    return articles[:10]
 
 
 def summarizeArticles(articles: list, sentences_count: int) -> list:
@@ -49,6 +49,6 @@ def getLlatestArticles(sentences_count: int, **kwargs) -> list:
     """
     Sends GET request to News API /v2/top-headlines endpoint,
     """
-    url = 'https://newsapi.org/v2/top-headlines/'
+    url = 'https://newsapi.org/v2/everything/'
     articles = newsAPI(url, **kwargs)
     return summarizeArticles(articles, sentences_count)
