@@ -5,6 +5,20 @@ from sumy.summarizers.lsa import LsaSummarizer as Summarizer
 from sumy.nlp.stemmers import Stemmer
 from sumy.utils import get_stop_words
 
+def filterEnergyFeed(articles: list) -> list:
+    """
+    return only the articles about science and technology
+    """
+    non_energy = ['actor', 'actors', 'movie', 'cinema']
+    for article in articles:
+        in_title = any(word in article.get('title').lower() for word in non_energy)
+        in_description = any(word in article.get('description').lower() for word in non_energy)
+        in_summary = any(word in article.get('summary').lower() for word in non_energy)
+
+        if in_title or in_description or in_summary:
+            articles.remove(article)
+
+
 def htmlSummarizer(url: str, sentences_count: int, language: str = 'english') -> str:
     """
     Summarizes text from URL
@@ -51,4 +65,7 @@ def getLlatestArticles(sentences_count: int, **kwargs) -> list:
     """
     url = 'https://newsapi.org/v2/everything/?pageSize=10'
     articles = newsAPI(url, **kwargs)
-    return summarizeArticles(articles, sentences_count)
+    summaries = summarizeArticles(articles, sentences_count)
+    filterEnergyFeed(summaries)
+
+    return summaries
