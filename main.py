@@ -44,6 +44,7 @@ def search(query):
         return HTMLResponse(index())
     articles = getLlatestArticles(3, q=query, apiKey=apiKey)
     formatted_articles = [format_article(article) for article in articles]
+    formatted_articles.reverse()
     html_content = """
     <h1 style="margin-left:10px">Summaries of feeds on the topic of "{}"</h1>""".format(query) + ''.join(formatted_articles)
 

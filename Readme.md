@@ -34,7 +34,7 @@ newsapi - for getting the data feed. It is a simple HTTP REST API for searching 
 4. Run 'python -m uvicorn main:app --reload' to run the REST API service
 5. Open the browser and go to 'http://127.0.0.1:8000/' to access the API
 6. Enter the query and click on 'Search' to get the summarized data feed
-7. To know more about the API, go to 'http://http://127.0.0.1:8000/docs'
+7. To know more about the API, go to 'http://127.0.0.1:8000/docs'
 
 ## Screenshots
 ### Home page
