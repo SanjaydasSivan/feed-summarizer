@@ -1,0 +1,10 @@
+{% %}
+<head>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<div class='article'>
+<h1 class='title'">{{%% article.get('title') %%}}</h1>
+<p>{{article.get('description')}}</p>
+<p>{{article.get('summary')}}</p>
+<a href="{{article.get('url')}}">Read More</a>
+</div>

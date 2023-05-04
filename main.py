@@ -17,7 +17,7 @@ def index():
         <link rel="stylesheet" href="/static/styles.css">
     </head>
     <div class="home">
-    <h1 style="margin-left:10px">Energy Data Feed</h1>
+    <h1 style="margin-left:10px">Search Summarizer</h1>
     <form action="/search" method="get">
         <input type="text" name="query" placeholder="Search">
         <input type="submit" value="Search">
@@ -49,3 +49,12 @@ def search(query):
     <h1 style="margin-left:10px">Summaries of feeds on the topic of "{}"</h1>""".format(query) + ''.join(formatted_articles)
 
     return HTMLResponse(content=html_content)
+
+@app.get('/feed')
+def feed(query):
+    if not query:
+        return []
+    
+    articles = getLlatestArticles(3, q=query, apiKey=apiKey)
+    
+    return articles

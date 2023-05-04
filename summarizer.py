@@ -66,6 +66,6 @@ def getLlatestArticles(sentences_count: int, **kwargs) -> list:
     url = 'https://newsapi.org/v2/everything/?pageSize=10'
     articles = newsAPI(url, **kwargs)
     summaries = summarizeArticles(articles, sentences_count)
-    filterEnergyFeed(summaries)
+    # filterEnergyFeed(summaries)
 
     return summaries
