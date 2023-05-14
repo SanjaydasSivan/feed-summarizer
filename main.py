@@ -1,11 +1,28 @@
 import fastapi
 from fastapi.responses import HTMLResponse
-from summarizer import getLlatestArticles
+from summarizer import getLatestArticles
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from fastapi.middleware.cors import CORSMiddleware
+
+
 
 app = fastapi.FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+origins = [
+    # all origins
+    "*",
+    "http://localhost:8080",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 apiKey = '5707e0ccd82c4f92bdfbdbc731f574e8'
 
@@ -39,10 +56,12 @@ def format_article(article):
     """
 
 @app.get('/search')
-def search(query):
+def search(query, sentences_count: int = 3, language: str = 'english'):
     if not query:
         return HTMLResponse(index())
-    articles = getLlatestArticles(3, q=query, apiKey=apiKey)
+    
+    articles = getLatestArticles(sentences_count, q=query)
+    
     formatted_articles = [format_article(article) for article in articles]
     formatted_articles.reverse()
     html_content = """
@@ -51,10 +70,10 @@ def search(query):
     return HTMLResponse(content=html_content)
 
 @app.get('/feed')
-def feed(query):
+def feed(query, sentences_count: int = 3, language: str = 'english'):
     if not query:
         return []
     
-    articles = getLlatestArticles(3, q=query, apiKey=apiKey)
+    articles = getLatestArticles(sentences_count, q=query)
     
     return articles
