@@ -4,6 +4,7 @@ from sumy.summarizers.lsa import LsaSummarizer as Summarizer
 from sumy.nlp.stemmers import Stemmer
 from sumy.utils import get_stop_words
 import newsapi
+from newsapi import NewsApiClient
 import concurrent.futures
 
 newsapi = newsapi.NewsApiClient(api_key='5707e0ccd82c4f92bdfbdbc731f574e8')	
